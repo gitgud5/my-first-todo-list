@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import useSortTasks from "../../hooks/useSortTasks";
-import { ButtonsSort , TaskItem} from "../../component";
+import { ButtonsSort, TaskItem } from "../../component";
 import { useDispatch, useSelector } from "react-redux";
 import { modalSlice } from "../../store/slices/modal";
-
 
 function LayoutContainer({ title, tasks }) {
   const modalActions = modalSlice.actions;
@@ -13,19 +12,17 @@ function LayoutContainer({ title, tasks }) {
 
   const { sortedBy, setSortedBy, sortedTasks } = useSortTasks(tasks);
 
-  const abc = useSelector(state => state.modal);
+  const abc = useSelector((state) => state.modal);
   const openModalHandler = () => {
-console.log(abc)
+    console.log(abc);
     dispatch(modalActions.openModalCreateTask());
   };
 
-  const tasksTitle = `${title} (${tasks.length} ${
-    tasks.length === 1 ? "task" : "tasks"
-  })`;
+  const tasksTitle = `${title} (${tasks.length} ${tasks.length === 1 ? "task" : "tasks"})`;
 
   return (
     <section>
-      <h1 className="my-5 text-lg font-medium text-center sm:text-left sm:my-8 md:text-2xl dark:text-slate-200">
+      <h1 className='my-5 text-lg font-medium text-center sm:text-left sm:my-8 md:text-2xl dark:text-slate-200'>
         {tasksTitle}
       </h1>
       <ButtonsSort
@@ -42,9 +39,7 @@ console.log(abc)
         }`}
       >
         {sortedTasks.map((task) => (
-
           <TaskItem key={task.id} isListInView1={isListInView1} task={task} />
-
         ))}
         <li>
           <button
@@ -55,10 +50,9 @@ console.log(abc)
                hover:text-slate-500
                dark:border-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-300 ${
                  isListInView1 ? "h-20 sm:h-32" : "h-52 sm:h-64"
-               }`
-            }
+               }`}
           >
-            Add new task
+            Add new ta
           </button>
         </li>
       </ul>

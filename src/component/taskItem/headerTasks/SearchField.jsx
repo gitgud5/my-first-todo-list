@@ -8,10 +8,10 @@ import useVisibility from "../../../hooks/useVisibility";
 const ItemSearch = ({ task }) => {
   const dateFormated = useDate(task.date);
   return (
-    <li key={task.id} className="py-2">
+    <li key={task.id} className='py-2'>
       <Link
         to={`/task/${task.id}`}
-        className="flex justify-between transition hover:text-rose-500 dark:hover:text-slate-200"
+        className='flex justify-between transition hover:text-rose-500 dark:hover:text-slate-200'
       >
         <span>{task.title}</span>
         <span>{dateFormated}</span>
@@ -54,22 +54,22 @@ const SearchField = () => {
   }, [closeListResults, searchInputValue, showListResults]);
 
   return (
-    <div className="flex-1 col-span-3 row-start-2 md:pr-10">
-      <form className="relative w-full  md:max-w-xs" autoComplete="off">
-        <label htmlFor="search" className="sr-only"></label>
+    <div className='flex-1 col-span-3 row-start-2 md:pr-10'>
+      <form className='relative w-full  md:max-w-xs' autoComplete='off'>
+        <label htmlFor='search' className='sr-only'></label>
         <input
-          type="search"
-          id="search"
-          placeholder="Search task"
+          type='search'
+          id='search'
+          placeholder='Search task'
           ref={searchResultsRef}
           onKeyUp={({ currentTarget }) => {
             setSearchInputValue(currentTarget.value);
           }}
-          className="w-full inputStyles"
+          className='bg-slate-100 text-slate-600 rounded-lg p-3 outline-transparent border-2 border-transparent hover:border-violet-600 focus:border-violet-600 focus:outline-none transition dark:bg-slate-800 w-full'
         />
-        <Search className="absolute w-4 sm:w-5 right-4 top-3.5 text-slate-400" />
+        <Search className='absolute w-4 sm:w-5 right-4 top-3.5 text-slate-400' />
         {listResultsVisible && (
-          <div className="absolute z-10 w-full p-3 rounded-md bg-slate-100 top-14 dark:bg-slate-800">
+          <div className='absolute z-10 w-full p-3 rounded-md bg-slate-100 top-14 dark:bg-slate-800'>
             {tasks.length ? (
               <>
                 <ul>
@@ -79,7 +79,7 @@ const SearchField = () => {
                 </ul>
                 <button
                   onClick={navigateToSearchResults}
-                  className="bg-rose-100 w-full p-2 rounded-md text-rose-600 dark:bg-slate-700/[.3] dark:text-slate-200"
+                  className='bg-rose-100 w-full p-2 rounded-md text-rose-600 dark:bg-slate-700/[.3] dark:text-slate-200'
                 >
                   All results for "{searchInputValue}"
                 </button>

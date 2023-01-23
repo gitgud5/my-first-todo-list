@@ -10,34 +10,25 @@ const sortValues = [
   { value: "uncompleted-first", title: "Uncompleted first" },
 ];
 
-const ButtonsSort = ({
-  isListInView1,
-  setIsListInView1,
-  sortedBy,
-  setSortedBy,
-}) => {
+const ButtonsSort = ({ isListInView1, setIsListInView1, sortedBy, setSortedBy }) => {
   return (
-    <div className="flex children-styles">
-      <button onClick={() => setIsListInView1(true)} title="view in list">
+    <div className='flex text-slate-400'>
+      <button onClick={() => setIsListInView1(true)} title='view in list'>
         <IconView1 className={isListInView1 ? "text-violet-600" : ""} />
       </button>
-      <button onClick={() => setIsListInView1(false)} title="view in grid">
+      <button onClick={() => setIsListInView1(false)} title='view in grid'>
         <IconView2 className={!isListInView1 ? "text-violet-600" : ""} />
       </button>
       <select
-        className="ml-auto inputStyles"
+        className='ml-auto bg-slate-100 text-slate-600 rounded-lg p-3 outline-transparent border-2 border-transparent hover: border-violet-600 focus:border-violet-600 focus:outline-none transition dark:bg-slate-800 placeholder:text-slate-400 placeholder:dark:text-slate-400'
         value={sortedBy}
         onChange={({ target }) => setSortedBy(target.value)}
       >
-        <option value="" disabled>
+        <option value='' disabled>
           Sort by
         </option>
         {sortValues.map((val) => (
-          <option
-            key={val.value}
-            value={val.value}
-            className="bg-slate-100 dark:bg-slate-800"
-          >
+          <option key={val.value} value={val.value} className='bg-slate-100 dark:bg-slate-800'>
             {val.title}
           </option>
         ))}
